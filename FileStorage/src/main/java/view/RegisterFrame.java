@@ -4,17 +4,21 @@
  */
 package view;
 
+import model.User;
+import java.awt.Cursor;
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author Win11
  */
 public class RegisterFrame extends javax.swing.JFrame {
+    
+    public User objectuser;
 
-    /**
-     * Creates new form RegisterFrame
-     */
     public RegisterFrame() {
         initComponents();
+        this.objectuser = new User();
     }
 
     /**
@@ -29,13 +33,13 @@ public class RegisterFrame extends javax.swing.JFrame {
         jLabel1 = new javax.swing.JLabel();
         JTFUserName = new javax.swing.JTextField();
         jLabel2 = new javax.swing.JLabel();
-        JTFPassword = new javax.swing.JTextField();
-        JTFConfirmPassword = new javax.swing.JTextField();
         JBCancel = new javax.swing.JButton();
         JBRegister = new javax.swing.JButton();
         jLabel4 = new javax.swing.JLabel();
         jSeparator1 = new javax.swing.JSeparator();
         jLabel3 = new javax.swing.JLabel();
+        JPSPassword = new javax.swing.JPasswordField();
+        JPSConfirmPassword = new javax.swing.JPasswordField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setBackground(new java.awt.Color(153, 204, 255));
@@ -49,10 +53,25 @@ public class RegisterFrame extends javax.swing.JFrame {
         JBCancel.setBackground(new java.awt.Color(51, 51, 51));
         JBCancel.setForeground(new java.awt.Color(153, 204, 255));
         JBCancel.setText("Cancel");
+        JBCancel.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                JBCancelActionPerformed(evt);
+            }
+        });
 
         JBRegister.setBackground(new java.awt.Color(51, 51, 51));
         JBRegister.setForeground(new java.awt.Color(153, 204, 255));
         JBRegister.setText("Register");
+        JBRegister.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                JBRegisterMouseEntered(evt);
+            }
+        });
+        JBRegister.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                JBRegisterActionPerformed(evt);
+            }
+        });
 
         jLabel4.setFont(new java.awt.Font("Segoe UI Black", 0, 24)); // NOI18N
         jLabel4.setText("REGISTER");
@@ -79,12 +98,12 @@ public class RegisterFrame extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel3)
                     .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 361, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                        .addComponent(jLabel2)
-                        .addComponent(jLabel1)
-                        .addComponent(JTFUserName)
-                        .addComponent(JTFPassword)
-                        .addComponent(JTFConfirmPassword, javax.swing.GroupLayout.DEFAULT_SIZE, 332, Short.MAX_VALUE)))
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                        .addComponent(JPSConfirmPassword, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 332, Short.MAX_VALUE)
+                        .addComponent(JPSPassword, javax.swing.GroupLayout.Alignment.LEADING)
+                        .addComponent(jLabel2, javax.swing.GroupLayout.Alignment.LEADING)
+                        .addComponent(jLabel1, javax.swing.GroupLayout.Alignment.LEADING)
+                        .addComponent(JTFUserName, javax.swing.GroupLayout.Alignment.LEADING)))
                 .addContainerGap(18, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
@@ -101,12 +120,12 @@ public class RegisterFrame extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jLabel2)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(JTFPassword, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(JPSPassword, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(12, 12, 12)
                 .addComponent(jLabel3)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(JTFConfirmPassword, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 25, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(JPSConfirmPassword, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 19, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(JBCancel)
                     .addComponent(JBRegister))
@@ -115,6 +134,49 @@ public class RegisterFrame extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void JBCancelActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JBCancelActionPerformed
+           this.dispose();
+    }//GEN-LAST:event_JBCancelActionPerformed
+
+    private void JBRegisterMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_JBRegisterMouseEntered
+       JBRegister.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
+    }//GEN-LAST:event_JBRegisterMouseEntered
+
+    private void JBRegisterActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JBRegisterActionPerformed
+        try {
+            String username = "";
+            String password = "";
+            String confirmpassword = "";
+            
+        if (this.JTFUserName.getText().length() < 2) {
+             throw new Msg("Nome deve conter ao menos 2 caracteres.");
+        } else {
+            username = this.JTFUserName.getText();
+        }
+        if (this.JPSPassword.getText().length() < 2) {
+            throw new Msg("A senha deve conter ao menos 2 caracteres.");           
+        } else {
+            password = this.JPSPassword.getText();
+        }
+        if (this.JPSConfirmPassword.getText().length() < 2) {
+             throw new Msg("A senha deve conter ao menos 2 caracteres.");           
+        } else {
+            confirmpassword = this.JPSConfirmPassword.getText();
+        }
+        if (this.objectuser(username, password, confirmpassword)) {
+            JOptionPane.showMessageDialog(rootPane, "Usuário registrado!");  
+            this.JTFUserName.setText(username);
+            this.JPSPassword.setText(password);
+            this.JPSConfirmPassword.setText(confirmpassword);
+        }
+        System.out.println(this.objectuser.getMinhaLista().toString());
+        
+        } catch (Msg erro) {    
+            JOptionPane.showMessageDialog(null, erro.getMessage());
+        }
+                                             
+    }//GEN-LAST:event_JBRegisterActionPerformed
 
     /**
      * @param args the command line arguments
@@ -154,8 +216,8 @@ public class RegisterFrame extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton JBCancel;
     private javax.swing.JButton JBRegister;
-    private javax.swing.JTextField JTFConfirmPassword;
-    private javax.swing.JTextField JTFPassword;
+    private javax.swing.JPasswordField JPSConfirmPassword;
+    private javax.swing.JPasswordField JPSPassword;
     private javax.swing.JTextField JTFUserName;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
@@ -163,4 +225,8 @@ public class RegisterFrame extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel4;
     private javax.swing.JSeparator jSeparator1;
     // End of variables declaration//GEN-END:variables
+
+    private boolean objectuser(String username, String password, String confirmpassword) {
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    }
 }
