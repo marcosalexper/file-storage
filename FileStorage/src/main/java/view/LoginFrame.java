@@ -157,7 +157,7 @@ public class LoginFrame extends javax.swing.JFrame {
 
     private void jMenuItemRegisterActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItemRegisterActionPerformed
          RegisterFrame objeto = new RegisterFrame();
-       objeto.setVisible(true);
+         objeto.setVisible(true);
     }//GEN-LAST:event_jMenuItemRegisterActionPerformed
 
     /**
