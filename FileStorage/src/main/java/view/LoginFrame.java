@@ -6,19 +6,14 @@ package view;
 
 import service.AuthService;
 import java.awt.Cursor;
-import javax.swing.JOptionPane;
-import model.User;
+
 
 
 public class LoginFrame extends javax.swing.JFrame {
-    
-    public User objectuser;
 
-  
     public LoginFrame(AuthService authService) {
         initComponents();
-        this.objectuser = new User();
-        
+
     }
 
     /**
@@ -36,9 +31,10 @@ public class LoginFrame extends javax.swing.JFrame {
         JBEnter = new javax.swing.JButton();
         JBCancel = new javax.swing.JButton();
         jLabel3 = new javax.swing.JLabel();
-        jSeparator1 = new javax.swing.JSeparator();
         JPSPassword = new javax.swing.JPasswordField();
-        JBRegister = new javax.swing.JButton();
+        jMenuBar1 = new javax.swing.JMenuBar();
+        jMenuNew = new javax.swing.JMenu();
+        jMenuItemRegister = new javax.swing.JMenuItem();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Login");
@@ -61,6 +57,11 @@ public class LoginFrame extends javax.swing.JFrame {
         JBEnter.setForeground(new java.awt.Color(153, 204, 255));
         JBEnter.setText("Enter");
         JBEnter.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        JBEnter.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                JBEnterMouseEntered(evt);
+            }
+        });
         JBEnter.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 JBEnterActionPerformed(evt);
@@ -80,58 +81,47 @@ public class LoginFrame extends javax.swing.JFrame {
         jLabel3.setFont(new java.awt.Font("Segoe UI Black", 0, 24)); // NOI18N
         jLabel3.setText("LOGIN");
 
-        JBRegister.setBackground(new java.awt.Color(51, 51, 51));
-        JBRegister.setForeground(new java.awt.Color(153, 204, 255));
-        JBRegister.setText("Register");
-        JBRegister.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseEntered(java.awt.event.MouseEvent evt) {
-                JBRegisterMouseEntered(evt);
-            }
-        });
-        JBRegister.addActionListener(new java.awt.event.ActionListener() {
+        jMenuNew.setText("New");
+
+        jMenuItemRegister.setText("Register");
+        jMenuItemRegister.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                JBRegisterActionPerformed(evt);
+                jMenuItemRegisterActionPerformed(evt);
             }
         });
+        jMenuNew.add(jMenuItemRegister);
+
+        jMenuBar1.add(jMenuNew);
+
+        setJMenuBar(jMenuBar1);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(layout.createSequentialGroup()
-                                .addGap(165, 165, 165)
-                                .addComponent(jLabel3))
-                            .addGroup(layout.createSequentialGroup()
-                                .addGap(20, 20, 20)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                    .addGroup(layout.createSequentialGroup()
-                                        .addComponent(JBRegister)
-                                        .addGap(67, 67, 67)
-                                        .addComponent(JBCancel)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                        .addComponent(JBEnter))
-                                    .addComponent(jLabel2)
-                                    .addComponent(jLabel1)
-                                    .addComponent(JTFUserName, javax.swing.GroupLayout.DEFAULT_SIZE, 356, Short.MAX_VALUE)
-                                    .addComponent(JPSPassword))))
-                        .addGap(0, 18, Short.MAX_VALUE))
+                .addGap(20, 20, 20)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(jSeparator1)))
-                .addContainerGap())
+                        .addComponent(JBCancel)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(JBEnter))
+                    .addComponent(jLabel2)
+                    .addComponent(jLabel1)
+                    .addComponent(JTFUserName, javax.swing.GroupLayout.DEFAULT_SIZE, 356, Short.MAX_VALUE)
+                    .addComponent(JPSPassword))
+                .addContainerGap(24, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jLabel3)
+                .addGap(159, 159, 159))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(jLabel3)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jSeparator1, javax.swing.GroupLayout.DEFAULT_SIZE, 17, Short.MAX_VALUE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGap(18, 18, 18)
                 .addComponent(jLabel1)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(JTFUserName, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -142,8 +132,7 @@ public class LoginFrame extends javax.swing.JFrame {
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(JBEnter)
-                    .addComponent(JBCancel)
-                    .addComponent(JBRegister))
+                    .addComponent(JBCancel))
                 .addGap(31, 31, 31))
         );
 
@@ -162,37 +151,14 @@ public class LoginFrame extends javax.swing.JFrame {
         this.dispose();
     }//GEN-LAST:event_JBCancelActionPerformed
 
-    private void JBRegisterMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_JBRegisterMouseEntered
-        JBRegister.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
-    }//GEN-LAST:event_JBRegisterMouseEntered
+    private void JBEnterMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_JBEnterMouseEntered
+        JBEnter.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
+    }//GEN-LAST:event_JBEnterMouseEntered
 
-    private void JBRegisterActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JBRegisterActionPerformed
-        try {
-            String username = "";
-            String password = "";
-
-            if (this.JTFUserName.getText().length() < 2) {
-                throw new Msg("Nome deve conter ao menos 2 caracteres.");
-            } else {
-                username = this.JTFUserName.getText();
-            }
-            if (this.JPSPassword.getText().length() < 2) {
-                throw new Msg("A senha deve conter ao menos 2 caracteres.");
-            } else {
-                password = this.JPSPassword.getText();
-            }
-            if (this.objectuser(username,password)) {
-                JOptionPane.showMessageDialog(rootPane, "Usuário registrado!");
-                this.JTFUserName.setText(username);
-                this.JPSPassword.setText(password);
-            }
-            System.out.println(this.objectuser.getMinhaLista().toString());
-
-        } catch (Msg erro) {
-            JOptionPane.showMessageDialog(null, erro.getMessage());
-        }
-
-    }//GEN-LAST:event_JBRegisterActionPerformed
+    private void jMenuItemRegisterActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItemRegisterActionPerformed
+         RegisterFrame objeto = new RegisterFrame();
+       objeto.setVisible(true);
+    }//GEN-LAST:event_jMenuItemRegisterActionPerformed
 
     /**
      * @param args the command line arguments
@@ -235,17 +201,13 @@ public class LoginFrame extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton JBCancel;
     private javax.swing.JButton JBEnter;
-    private javax.swing.JButton JBRegister;
     private javax.swing.JPasswordField JPSPassword;
     private javax.swing.JTextField JTFUserName;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
-    private javax.swing.JSeparator jSeparator1;
+    private javax.swing.JMenuBar jMenuBar1;
+    private javax.swing.JMenuItem jMenuItemRegister;
+    private javax.swing.JMenu jMenuNew;
     // End of variables declaration//GEN-END:variables
-
-  private boolean objectuser(String username, String password) {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
-    }
 }
-
