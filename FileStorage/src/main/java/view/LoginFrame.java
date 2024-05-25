@@ -28,13 +28,14 @@ public class LoginFrame extends javax.swing.JFrame {
         JTFUserName = new javax.swing.JTextField();
         jLabel2 = new javax.swing.JLabel();
         JBEnter = new javax.swing.JButton();
-        JBCancel = new javax.swing.JButton();
+        JBClose = new javax.swing.JButton();
         jLabel3 = new javax.swing.JLabel();
         JPSPassword = new javax.swing.JPasswordField();
+        jSeparator1 = new javax.swing.JSeparator();
         jMenuBar1 = new javax.swing.JMenuBar();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setTitle("Login");
+        setTitle("Login to File Storage");
         setBackground(new java.awt.Color(153, 204, 255));
         setLocation(new java.awt.Point(500, 250));
 
@@ -65,17 +66,19 @@ public class LoginFrame extends javax.swing.JFrame {
             }
         });
 
-        JBCancel.setBackground(new java.awt.Color(51, 51, 51));
-        JBCancel.setForeground(new java.awt.Color(153, 204, 255));
-        JBCancel.setText("Cancel");
-        JBCancel.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        JBCancel.addActionListener(new java.awt.event.ActionListener() {
+        JBClose.setBackground(new java.awt.Color(51, 51, 51));
+        JBClose.setForeground(new java.awt.Color(153, 204, 255));
+        JBClose.setText("Close");
+        JBClose.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        JBClose.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                JBCancelActionPerformed(evt);
+                JBCloseActionPerformed(evt);
             }
         });
 
+        jLabel3.setBackground(new java.awt.Color(255, 255, 255));
         jLabel3.setFont(new java.awt.Font("Segoe UI Black", 0, 24)); // NOI18N
+        jLabel3.setForeground(new java.awt.Color(153, 204, 255));
         jLabel3.setText("LOGIN");
         setJMenuBar(jMenuBar1);
 
@@ -84,28 +87,32 @@ public class LoginFrame extends javax.swing.JFrame {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(20, 20, 20)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addComponent(JBCancel)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(JBEnter))
-                    .addComponent(jLabel2)
-                    .addComponent(jLabel1)
-                    .addComponent(JTFUserName, javax.swing.GroupLayout.DEFAULT_SIZE, 356, Short.MAX_VALUE)
-                    .addComponent(JPSPassword))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(20, 20, 20)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                                .addComponent(JBClose)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(JBEnter))
+                            .addComponent(jLabel2)
+                            .addComponent(jLabel1)
+                            .addComponent(JTFUserName, javax.swing.GroupLayout.DEFAULT_SIZE, 356, Short.MAX_VALUE)
+                            .addComponent(JPSPassword)
+                            .addComponent(jSeparator1)))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(162, 162, 162)
+                        .addComponent(jLabel3)))
                 .addContainerGap(24, Short.MAX_VALUE))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jLabel3)
-                .addGap(159, 159, 159))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addContainerGap(28, Short.MAX_VALUE)
+                .addGap(14, 14, 14)
                 .addComponent(jLabel3)
-                .addGap(18, 18, 18)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 16, Short.MAX_VALUE)
                 .addComponent(jLabel1)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(JTFUserName, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -116,7 +123,7 @@ public class LoginFrame extends javax.swing.JFrame {
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(JBEnter)
-                    .addComponent(JBCancel))
+                    .addComponent(JBClose))
                 .addGap(31, 31, 31))
         );
 
@@ -131,9 +138,9 @@ public class LoginFrame extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_JBEnterActionPerformed
 
-    private void JBCancelActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JBCancelActionPerformed
+    private void JBCloseActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JBCloseActionPerformed
         this.dispose();
-    }//GEN-LAST:event_JBCancelActionPerformed
+    }//GEN-LAST:event_JBCloseActionPerformed
 
     private void JBEnterMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_JBEnterMouseEntered
         JBEnter.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
@@ -178,7 +185,7 @@ public class LoginFrame extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton JBCancel;
+    private javax.swing.JButton JBClose;
     private javax.swing.JButton JBEnter;
     private javax.swing.JPasswordField JPSPassword;
     private javax.swing.JTextField JTFUserName;
@@ -186,5 +193,6 @@ public class LoginFrame extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JMenuBar jMenuBar1;
+    private javax.swing.JSeparator jSeparator1;
     // End of variables declaration//GEN-END:variables
 }
