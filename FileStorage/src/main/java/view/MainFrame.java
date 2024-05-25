@@ -36,6 +36,7 @@ public class MainFrame extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Files");
+        setBackground(new java.awt.Color(153, 204, 255));
         setLocation(new java.awt.Point(500, 250));
 
         jTableFiles.setModel(new javax.swing.table.DefaultTableModel(
@@ -48,8 +49,12 @@ public class MainFrame extends javax.swing.JFrame {
         ));
         jScrollPane1.setViewportView(jTableFiles);
 
+        JBUpload.setBackground(new java.awt.Color(51, 51, 51));
+        JBUpload.setForeground(new java.awt.Color(153, 204, 255));
         JBUpload.setText("Upload");
 
+        JBClose.setBackground(new java.awt.Color(51, 51, 51));
+        JBClose.setForeground(new java.awt.Color(153, 204, 255));
         JBClose.setText("Close");
         JBClose.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -57,6 +62,8 @@ public class MainFrame extends javax.swing.JFrame {
             }
         });
 
+        JBDelete.setBackground(new java.awt.Color(51, 51, 51));
+        JBDelete.setForeground(new java.awt.Color(153, 204, 255));
         JBDelete.setText("Delete");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());

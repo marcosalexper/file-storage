@@ -40,9 +40,11 @@ public class LoginFrame extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Login");
+        setBackground(new java.awt.Color(153, 204, 255));
         setLocation(new java.awt.Point(500, 250));
 
-        jLabel1.setText("User Name");
+        jLabel1.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        jLabel1.setText("USER NAME");
 
         JTFUserName.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -50,8 +52,11 @@ public class LoginFrame extends javax.swing.JFrame {
             }
         });
 
-        jLabel2.setText("Password");
+        jLabel2.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        jLabel2.setText("PASSWORD:");
 
+        JBEnter.setBackground(new java.awt.Color(51, 51, 51));
+        JBEnter.setForeground(new java.awt.Color(153, 204, 255));
         JBEnter.setText("Enter");
         JBEnter.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         JBEnter.addActionListener(new java.awt.event.ActionListener() {
@@ -60,6 +65,8 @@ public class LoginFrame extends javax.swing.JFrame {
             }
         });
 
+        JBCancel.setBackground(new java.awt.Color(51, 51, 51));
+        JBCancel.setForeground(new java.awt.Color(153, 204, 255));
         JBCancel.setText("Cancel");
         JBCancel.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         JBCancel.addActionListener(new java.awt.event.ActionListener() {
@@ -105,7 +112,7 @@ public class LoginFrame extends javax.swing.JFrame {
                 .addContainerGap()
                 .addComponent(jLabel3)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jSeparator1, javax.swing.GroupLayout.DEFAULT_SIZE, 17, Short.MAX_VALUE)
+                .addComponent(jSeparator1)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jLabel1)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
