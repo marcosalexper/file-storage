@@ -39,6 +39,7 @@ public class LoginFrame extends javax.swing.JFrame {
         jSeparator1 = new javax.swing.JSeparator();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setTitle("Login");
         setLocation(new java.awt.Point(500, 250));
 
         jLabel1.setText("User Name");
