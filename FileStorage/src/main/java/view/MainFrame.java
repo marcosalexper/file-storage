@@ -49,6 +49,11 @@ public class MainFrame extends javax.swing.JFrame {
         JBUpload.setText("Upload");
 
         JBClose.setText("Close");
+        JBClose.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                JBCloseActionPerformed(evt);
+            }
+        });
 
         JBDelete.setText("Delete");
 
@@ -73,9 +78,9 @@ public class MainFrame extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addGap(71, 71, 71)
                 .addComponent(JBClose)
-                .addGap(126, 126, 126)
-                .addComponent(JBDelete)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(JBDelete)
+                .addGap(111, 111, 111)
                 .addComponent(JBUpload)
                 .addGap(83, 83, 83))
         );
@@ -98,6 +103,10 @@ public class MainFrame extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void JBCloseActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JBCloseActionPerformed
+        System.exit(0);
+    }//GEN-LAST:event_JBCloseActionPerformed
 
     /**
      * @param args the command line arguments

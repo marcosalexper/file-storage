@@ -4,16 +4,19 @@
  */
 package view;
 
+import service.AuthService;
+
 /**
  *
  * @author Win11
  */
-public class Login extends javax.swing.JFrame {
+public class LoginFrame extends javax.swing.JFrame {
 
     /**
      * Creates new form Login
+     * @param authService
      */
-    public Login() {
+    public LoginFrame(AuthService authService) {
         initComponents();
     }
 
@@ -30,7 +33,7 @@ public class Login extends javax.swing.JFrame {
         JTFUserName = new javax.swing.JTextField();
         jLabel2 = new javax.swing.JLabel();
         JTFPassword = new javax.swing.JTextField();
-        JBOk = new javax.swing.JButton();
+        JBEnter = new javax.swing.JButton();
         JBCancel = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -45,14 +48,21 @@ public class Login extends javax.swing.JFrame {
 
         jLabel2.setText("Password");
 
-        JBOk.setText("OK");
-        JBOk.addActionListener(new java.awt.event.ActionListener() {
+        JBEnter.setText("Enter");
+        JBEnter.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        JBEnter.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                JBOkActionPerformed(evt);
+                JBEnterActionPerformed(evt);
             }
         });
 
         JBCancel.setText("Cancel");
+        JBCancel.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        JBCancel.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                JBCancelActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -70,7 +80,7 @@ public class Login extends javax.swing.JFrame {
                 .addGap(60, 60, 60)
                 .addComponent(JBCancel)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 129, Short.MAX_VALUE)
-                .addComponent(JBOk)
+                .addComponent(JBEnter)
                 .addGap(67, 67, 67))
         );
         layout.setVerticalGroup(
@@ -86,7 +96,7 @@ public class Login extends javax.swing.JFrame {
                 .addComponent(JTFPassword, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 53, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(JBOk)
+                    .addComponent(JBEnter)
                     .addComponent(JBCancel))
                 .addGap(31, 31, 31))
         );
@@ -98,9 +108,13 @@ public class Login extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_JTFUserNameActionPerformed
 
-    private void JBOkActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JBOkActionPerformed
+    private void JBEnterActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JBEnterActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_JBOkActionPerformed
+    }//GEN-LAST:event_JBEnterActionPerformed
+
+    private void JBCancelActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JBCancelActionPerformed
+        this.dispose();
+    }//GEN-LAST:event_JBCancelActionPerformed
 
     /**
      * @param args the command line arguments
@@ -119,27 +133,30 @@ public class Login extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(Login.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(LoginFrame.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(Login.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(LoginFrame.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(Login.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(LoginFrame.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(Login.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(LoginFrame.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new Login().setVisible(true);
+               AuthService authService = new AuthService();
+               LoginFrame loginFrame = new LoginFrame(authService);
+               loginFrame.setVisible(true); 
             }
         });
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton JBCancel;
-    private javax.swing.JButton JBOk;
+    private javax.swing.JButton JBEnter;
     private javax.swing.JTextField JTFPassword;
     private javax.swing.JTextField JTFUserName;
     private javax.swing.JLabel jLabel1;
