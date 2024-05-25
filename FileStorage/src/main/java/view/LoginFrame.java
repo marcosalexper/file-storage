@@ -8,7 +8,6 @@ import service.AuthService;
 import java.awt.Cursor;
 
 
-
 public class LoginFrame extends javax.swing.JFrame {
 
     public LoginFrame(AuthService authService) {
@@ -33,8 +32,6 @@ public class LoginFrame extends javax.swing.JFrame {
         jLabel3 = new javax.swing.JLabel();
         JPSPassword = new javax.swing.JPasswordField();
         jMenuBar1 = new javax.swing.JMenuBar();
-        jMenuNew = new javax.swing.JMenu();
-        jMenuItemRegister = new javax.swing.JMenuItem();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Login");
@@ -80,19 +77,6 @@ public class LoginFrame extends javax.swing.JFrame {
 
         jLabel3.setFont(new java.awt.Font("Segoe UI Black", 0, 24)); // NOI18N
         jLabel3.setText("LOGIN");
-
-        jMenuNew.setText("New");
-
-        jMenuItemRegister.setText("Register");
-        jMenuItemRegister.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jMenuItemRegisterActionPerformed(evt);
-            }
-        });
-        jMenuNew.add(jMenuItemRegister);
-
-        jMenuBar1.add(jMenuNew);
-
         setJMenuBar(jMenuBar1);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -119,7 +103,7 @@ public class LoginFrame extends javax.swing.JFrame {
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap(28, Short.MAX_VALUE)
                 .addComponent(jLabel3)
                 .addGap(18, 18, 18)
                 .addComponent(jLabel1)
@@ -155,11 +139,6 @@ public class LoginFrame extends javax.swing.JFrame {
         JBEnter.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
     }//GEN-LAST:event_JBEnterMouseEntered
 
-    private void jMenuItemRegisterActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItemRegisterActionPerformed
-         RegisterFrame objeto = new RegisterFrame();
-         objeto.setVisible(true);
-    }//GEN-LAST:event_jMenuItemRegisterActionPerformed
-
     /**
      * @param args the command line arguments
      */
@@ -191,9 +170,9 @@ public class LoginFrame extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-               AuthService authService = new AuthService();
-               LoginFrame loginFrame = new LoginFrame(authService);
-               loginFrame.setVisible(true); 
+                AuthService authService = new AuthService();
+                LoginFrame loginFrame = new LoginFrame(authService);
+                loginFrame.setVisible(true);
             }
         });
     }
@@ -207,7 +186,5 @@ public class LoginFrame extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JMenuBar jMenuBar1;
-    private javax.swing.JMenuItem jMenuItemRegister;
-    private javax.swing.JMenu jMenuNew;
     // End of variables declaration//GEN-END:variables
 }
