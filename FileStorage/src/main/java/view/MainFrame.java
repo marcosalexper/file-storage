@@ -35,6 +35,7 @@ public class MainFrame extends javax.swing.JFrame {
         JBDelete = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setLocation(new java.awt.Point(500, 250));
 
         jTableFiles.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
